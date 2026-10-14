@@ -15,6 +15,12 @@
 | 5 | −∞ becomes exactly 0 | causal and padding masks |
 | 6 | Saturation on large inputs | the √d_k scaling in attention |
 
+## Temperature
+
+Dividing the scores by a temperature T before softmax changes how sharp the result is. Small T gets close to argmax; large T gets close to equal weights. This is the temperature setting used in LLM sampling.
+
+<img src="temperature.png" alt="Softmax of the same scores at T = 0.1, 1, 10, 1000" width="500">
+
 ## The √d_k connection
 
 A dot product of two random d_k-dimensional vectors has variance ≈ d_k, so attention scores grow with dimension. With d_k = 512, the raw scores push softmax to an almost one-hot output, and the gradient nearly vanishes:
