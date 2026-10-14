@@ -22,7 +22,7 @@ Most single-head tutorials set every dimension equal (d_k = d_v = d_model), whic
 ## What it shows
 
 1. **Q and K only need to match each other.** Q·Kᵀ is (3×2)·(2×3) → (3×3): one score per token pair. `d_k` doesn't need to match anything else.
-2. **The causal mask blocks the future.** `triu(..., diagonal=1)` marks positions above the diagonal; `masked_fill` sets them to −∞, so softmax gives them exactly 0.
+2. **The causal mask blocks the future.** `triu(..., diagonal=1)` marks positions above the diagonal; `masked_fill` sets them to −∞, so softmax gives them exactly 0. (Why softmax, and why √d_k? See [Why Softmax?](../../concepts/softmax/).)
 3. **V has its own width.** weights·V is (3×3)·(3×5) → (3×5), independent of `d_k`.
 4. **W_o is the bridge back.** The attention output is (3×5) but `x` is (3×4); `W_o` (5 → 4) projects back so the residual `x + out` works.
 

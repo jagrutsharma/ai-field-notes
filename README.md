@@ -10,6 +10,14 @@ Each folder is a small, self-contained entry: I build something to understand it
 |---|---|---|
 | [Build a Transformer](build-a-transformer/) | A Transformer from scratch in PyTorch, one idea per part, following *Attention Is All You Need* (2017) | Part 1 of 7 |
 
+## Concepts
+
+Standalone deep dives into one idea each.
+
+| Concept | What it covers |
+|---|---|
+| [Why Softmax?](concepts/softmax/) | The properties that make softmax so useful, and why attention divides by √d_k |
+
 ## Related work
 
 - [inference-benchmark-lab](https://github.com/jagrutsharma/inference-benchmark-lab): single-GPU LLM inference optimization
